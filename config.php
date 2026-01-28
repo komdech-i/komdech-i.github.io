@@ -2,11 +2,11 @@
 // config.php - รองรับทั้ง localhost และ Railway
 
 // อ่านค่าจาก Environment Variables (สำหรับ Railway)
-$host = getenv('MYSQL_HOST') ?: 'localhost';
-$dbname = getenv('MYSQL_DATABASE') ?: 'student';
-$username = getenv('MYSQL_USER') ?: 'root';
-$password = getenv('MYSQL_PASSWORD') ?: '';
-$port = getenv('MYSQL_PORT') ?: 3306;
+$host = getenv('MYSQL_HOST') ?: getenv('MYSQLHOST') ?: 'localhost';
+$dbname = getenv('MYSQL_DATABASE') ?: getenv('MYSQLDATABASE') ?: 'student';
+$username = getenv('MYSQL_USER') ?: getenv('MYSQLUSER') ?: 'root';
+$password = getenv('MYSQL_PASSWORD') ?: getenv('MYSQLPASSWORD') ?: '';
+$port = getenv('MYSQL_PORT') ?: getenv('MYSQLPORT') ?: 3306;
 
 try {
     $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $username, $password);
@@ -28,3 +28,4 @@ function jsonResponse($data, $statusCode = 200) {
     exit;
 }
 ?>
+
