@@ -1,7 +1,7 @@
 <?php
-// config.php - สำหรับ Railway
+// config.php - รองรับทั้ง localhost และ Railway
 
-// อ่านจาก Environment Variables
+// อ่านค่าจาก Environment Variables (สำหรับ Railway)
 $host = getenv('MYSQL_HOST') ?: 'localhost';
 $dbname = getenv('MYSQL_DATABASE') ?: 'student';
 $username = getenv('MYSQL_USER') ?: 'root';
